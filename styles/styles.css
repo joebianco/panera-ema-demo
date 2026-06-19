@@ -303,3 +303,53 @@ main .cards-benefit-container .default-content-wrapper > p:only-child {
   color: var(--panera-midnight, #011400);
 }
 
+/* "Browse Our Menu" header preceding the cards-category block: heading on the
+   left, "Explore Menu" link on the right (matches the source category section). */
+/* stylelint-disable-next-line no-descending-specificity */
+main .cards-category-container .default-content-wrapper:has(> h2) {
+  max-width: unset;
+  padding: 0 24px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+
+main .cards-category-container .default-content-wrapper > h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.1px;
+  text-transform: uppercase;
+  color: var(--panera-midnight, #011400);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .cards-category-container .default-content-wrapper:has(> h2) p {
+  margin: 0;
+}
+
+main .cards-category-container .default-content-wrapper:has(> h2) a:any-link,
+main .cards-category-container .default-content-wrapper:has(> h2) a.button:any-link {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--panera-green);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+main .cards-category-container .default-content-wrapper:has(> h2) a:hover {
+  background: none;
+  filter: none;
+  text-decoration: underline;
+}
+

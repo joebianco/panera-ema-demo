@@ -302,7 +302,25 @@ var CustomImportScript = (() => {
       return;
     }
     const block = WebImporter.Blocks.createBlock(document, { name: "cards-category", cells });
-    element.replaceWith(block);
+    const before = [];
+    const headingEl = element.querySelector("h1, h2, h3");
+    const headingText = headingEl ? (headingEl.textContent || "").replace(/\s+/g, " ").trim() : "";
+    if (headingText) {
+      const h2 = document.createElement("h2");
+      h2.textContent = headingText;
+      before.push(h2);
+    }
+    const ctaEl = element.querySelector(".iw-bcsa-btn-wrapper span.heavy, .iw-bcsa-btn-wrapper silo-button, silo-button");
+    const ctaText = ctaEl ? (ctaEl.textContent || "").replace(/\s+/g, " ").trim() : "";
+    if (ctaText) {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.setAttribute("href", "/en-us/menu.html");
+      a.textContent = ctaText;
+      p.append(a);
+      before.push(p);
+    }
+    element.replaceWith(...before, block);
   }
 
   // tools/importer/parsers/cards-benefit.js

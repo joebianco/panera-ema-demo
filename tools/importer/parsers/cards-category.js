@@ -84,5 +84,31 @@ export default function parse(element, { document }) {
   }
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'cards-category', cells });
-  element.replaceWith(block);
+
+  // --- Section header ("Browse Our Menu" + "Explore Menu" CTA) ---
+  // Emitted as default content BEFORE the block (like the carousel header) so the
+  // heading and CTA survive the markdown→DA conversion. Heading rendered as <h2>
+  // (the source uses an h1, but the page already has its title h1; h2 keeps a
+  // single page title). The "Explore Menu" CTA links to the menu landing page.
+  const before = [];
+  const headingEl = element.querySelector('h1, h2, h3');
+  const headingText = headingEl ? (headingEl.textContent || '').replace(/\s+/g, ' ').trim() : '';
+  if (headingText) {
+    const h2 = document.createElement('h2');
+    h2.textContent = headingText;
+    before.push(h2);
+  }
+
+  const ctaEl = element.querySelector('.iw-bcsa-btn-wrapper span.heavy, .iw-bcsa-btn-wrapper silo-button, silo-button');
+  const ctaText = ctaEl ? (ctaEl.textContent || '').replace(/\s+/g, ' ').trim() : '';
+  if (ctaText) {
+    const p = document.createElement('p');
+    const a = document.createElement('a');
+    a.setAttribute('href', '/en-us/menu.html');
+    a.textContent = ctaText;
+    p.append(a);
+    before.push(p);
+  }
+
+  element.replaceWith(...before, block);
 }
