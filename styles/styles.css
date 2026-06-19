@@ -308,7 +308,7 @@ main .cards-benefit-container .default-content-wrapper > p:only-child {
    Matches both the auto-generated heading ID (local preview) and the first
    heading of the first section (DA, where heading IDs may differ/be absent). */
 main h1#panera-bread,
-main > .section:first-child .default-content-wrapper:first-child > h1:first-child {
+main > .section:first-child h1:first-of-type {
   position: absolute;
   width: 1px;
   height: 1px;
