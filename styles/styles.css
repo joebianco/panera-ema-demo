@@ -303,19 +303,3 @@ main .cards-benefit-container .default-content-wrapper > p:only-child {
   color: var(--panera-midnight, #011400);
 }
 
-/* Page-title H1 ("Panera Bread") — visually hidden and collapsed, matching the
-   source page (kept in the DOM/accessibility tree, takes up no space).
-   Matches both the auto-generated heading ID (local preview) and the first
-   heading of the first section (DA, where heading IDs may differ/be absent). */
-main h1#panera-bread,
-main > .section:first-child h1:first-of-type {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}

@@ -139,6 +139,17 @@ export function moveInstrumentation(from, to) {
 }
 
 /**
+ * Removes the page-title H1 ("Panera Bread"). The source page keeps this title
+ * visually hidden; CSS hiding is unreliable in DA's rendered preview because the
+ * auto-generated heading id differs, so remove the element outright.
+ * @param {Element} main The container element
+ */
+function removePageTitle(main) {
+  const h1 = main.querySelector('h1');
+  if (h1 && h1.textContent.trim() === 'Panera Bread') h1.remove();
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -146,6 +157,7 @@ export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
+  removePageTitle(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
