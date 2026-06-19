@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "url": "https://www.panerabread.com/en-us/home.html",
+  "path": "en-us/home.html",
+  "timestamp": "2026-06-19T00:46:24.053Z",
+  "error": "page.evaluate: Error: Failed to import page: Cannot read properties of null (reading 'setTimeout')\n    at eval (eval at evaluate (:290:30), <anonymous>:29:15)\n    at async <anonymous>:316:30",
+  "errorStack": "page.evaluate: Error: Failed to import page: Cannot read properties of null (reading 'setTimeout')\n    at eval (eval at evaluate (:290:30), <anonymous>:29:15)\n    at async <anonymous>:316:30\n    at processUrl (/home/node/.excat-marketplace/excat/skills/excat-content-import/scripts/run-bulk-import.js:456:31)\n    at async main (/home/node/.excat-marketplace/excat/skills/excat-content-import/scripts/run-bulk-import.js:600:22)"
+}

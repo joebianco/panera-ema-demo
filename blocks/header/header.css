@@ -1,61 +1,206 @@
-/* header and nav layout */
+/* Panera Bread header
+   Row 0: coral global promo banner
+   Row 1: white main header (logo | nav links | tools/CTA) */
+
+:root {
+  --panera-coral: #ff978f;
+  --panera-green: #4c753f;
+  --panera-green-dark: #1d4321;
+  --panera-lime: #c5d400;
+  --panera-nav-link: #576c1d; /* header nav link green (source: rgb(87,108,29)) */
+  --panera-header-height: 72px;
+}
+
+/* The nav-wrapper is fixed, so reserve its height on the in-flow header element
+   to push page content below it (prevents the nav from covering the order-setup
+   bar / hero). Mobile: banner text wraps to two lines (~135px). */
+header {
+  min-height: 138px;
+}
+
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #fff;
   width: 100%;
-  z-index: 2;
+  z-index: 10;
   position: fixed;
+  top: 0;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
 }
 
 header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
+    'banner banner banner' auto
+    'hamburger brand tools' var(--panera-header-height)
+    'sections sections sections' auto / auto 1fr auto;
   align-items: center;
-  gap: 0 24px;
   margin: auto;
-  max-width: 1248px;
-  height: var(--nav-height);
-  padding: 0 24px;
+  width: 100%;
+  max-width: 100%;
   font-family: var(--body-font-family);
 }
 
-header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
-  overflow-y: auto;
-  min-height: 100dvh;
+/* ===== Global banner (row 0) ===== */
+header nav .nav-banner {
+  box-sizing: border-box;
+  grid-area: banner;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--panera-coral);
+  color: #000;
+  font-size: 13px;
+  line-height: 1.2;
+  padding: 8px 16px;
+  text-align: center;
 }
 
-@media (width >= 900px) {
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
-}
-
-header nav p {
+header nav .nav-banner p {
   margin: 0;
-  
-  /* line-height: 1; BOILERPLATE DOESN'T HAVE a P tag in header, */
 }
 
-header nav a:any-link {
-  color: currentcolor;
+/* "Panera" / "Panera Catering" tab switcher (left side of the banner).
+   Hidden on mobile (source only shows it on desktop). */
+header nav .nav-banner-tabs {
+  display: none;
 }
 
-/* hamburger */
+/* Promo links ("Join Now" / "Shop Gift Cards") — bold, underlined, midnight.
+   Scoped to the promo wrapper so the tab links are not affected. */
+header nav .nav-banner .default-content-wrapper .button,
+header nav .nav-banner .default-content-wrapper a {
+  color: var(--text-color);
+  font-weight: 700;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+/* ===== Brand / logo (row 1) ===== */
+header nav .nav-brand {
+  grid-area: brand;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
+
+header nav .nav-brand p {
+  margin: 0;
+  line-height: 0;
+}
+
+header nav .nav-brand img {
+  width: 96px;
+  height: auto;
+}
+
+/* ===== Nav links (sections) ===== */
+header nav .nav-sections {
+  grid-area: sections;
+  display: none;
+  visibility: hidden;
+}
+
+header nav .nav-sections ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav .nav-sections a:any-link {
+  color: var(--panera-nav-link);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+header nav .nav-sections a:hover {
+  text-decoration: underline;
+}
+
+header nav .nav-badge {
+  display: inline-block;
+  margin-left: 6px;
+  background-color: var(--panera-lime);
+  color: var(--panera-green-dark);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+/* ===== Tools / actions (mobile-first) ===== */
+header nav .nav-tools {
+  grid-area: tools;
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+  justify-content: flex-end;
+}
+
+header nav .nav-tools ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+header nav .nav-tools a:any-link {
+  color: var(--panera-nav-link);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+header nav .nav-tools .nav-signin,
+header nav .nav-tools .nav-join {
+  display: none;
+}
+
+header nav .nav-tools a.nav-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--panera-green);
+}
+
+header nav .nav-tools a.nav-search svg {
+  width: 22px;
+  height: 22px;
+}
+
+header nav .nav-tools a.nav-cta {
+  background-color: var(--panera-lime);
+  color: var(--panera-green-dark);
+  font-weight: 700;
+  padding: 10px 16px;
+  font-size: 13px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+header nav .nav-tools a.nav-cta:hover {
+  text-decoration: none;
+  filter: brightness(0.95);
+}
+
+/* ===== Hamburger (mobile) ===== */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -69,11 +214,9 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
-  overflow: initial;
-  text-overflow: initial;
-  white-space: initial;
+  background: none;
+  color: var(--panera-green);
+  cursor: pointer;
 }
 
 header nav .nav-hamburger-icon,
@@ -82,7 +225,7 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 20px;
+  width: 22px;
 }
 
 header nav .nav-hamburger-icon::before,
@@ -101,224 +244,177 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::after {
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  top: -6px;
+  top: -7px;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  top: 6px;
+  top: 7px;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon {
   height: 22px;
+  background: transparent;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::before,
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: 3px;
+  top: 10px;
   left: 1px;
   transform: rotate(45deg);
-  transform-origin: 2px 1px;
-  width: 24px;
+  transform-origin: center;
+  width: 22px;
   height: 2px;
   border-radius: 2px;
+  transition: transform 0.3s ease;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: unset;
-  bottom: 3px;
   transform: rotate(-45deg);
 }
 
-@media (width >= 900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-/* brand */
-header .nav-brand {
-  grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
-  line-height: 1;
-}
-
-header nav .nav-brand img {
-  width: 128px;
-  height: auto;
-}
-
-/* sections */
-header nav .nav-sections {
-  grid-area: sections;
-  flex: 1 1 auto;
-  display: none;
-  visibility: hidden;
+/* ===== Mobile open state ===== */
+header nav[aria-expanded='true'] {
+  grid-template:
+    'banner banner' auto
+    'hamburger brand' var(--panera-header-height)
+    'tools tools' auto
+    'sections sections' 1fr / auto 1fr;
+  overflow-y: auto;
 }
 
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
-  align-self: start;
+  padding: 16px 24px;
 }
 
-header nav .nav-sections ul {
-  list-style: none;
-  padding-left: 0;
-  font-size: var(--body-font-size-s);
+header nav[aria-expanded='true'] .nav-sections ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 500;
+header nav[aria-expanded='true'] .nav-sections a {
+  font-size: 18px;
 }
 
-header nav .nav-sections ul > li > ul {
-  margin-top: 0;
-}
-
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 400;
-}
-
+/* ===== Desktop layout ===== */
 @media (width >= 900px) {
-  header nav .nav-sections {
-    display: block;
-    visibility: visible;
+  /* Banner is a single line on desktop, so the fixed nav is shorter (~122px). */
+  header {
+    min-height: 122px;
+  }
+
+  /* Desktop banner: tabs left, promo pushed to the right; 50px tall coral bar
+     with horizontal page padding matching the source (50px). */
+  header nav .nav-banner {
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 0;
+    height: 50px;
+    padding: 0 50px;
+    text-align: left;
+  }
+
+  /* Folder-style tabs, bottom-aligned within the 50px bar */
+  header nav .nav-banner-tabs {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+  }
+
+  header nav .nav-banner-tab {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 8px 8px 0 0;
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 22px;
+    text-decoration: none;
     white-space: nowrap;
   }
 
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
+  header nav .nav-banner-tab-active {
+    background-color: #fff;
   }
 
-  header nav .nav-sections .nav-drop {
-    position: relative;
-    padding-right: 16px;
-    cursor: pointer;
+  header nav a.nav-banner-tab:not(.nav-banner-tab-active):hover {
+    text-decoration: underline;
   }
 
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 0.5em;
-    right: 2px;
-    transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
+  /* Promo message + Join Now: right-aligned, vertically centered in the bar.
+     The banner is align-items:flex-end (folder tabs sit at the bottom), so the
+     promo must center itself with align-self + full height. */
+  header nav .nav-banner .default-content-wrapper {
+    align-self: stretch;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 400;
   }
 
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.5em;
-    transform: rotate(315deg);
+  header nav {
+    grid-template:
+      'banner banner banner' auto
+      'brand sections tools' var(--panera-header-height) / auto 1fr auto;
+    gap: 0 32px;
+    padding: 0;
+  }
+
+  header nav[aria-expanded='true'] {
+    grid-template:
+      'banner banner banner' auto
+      'brand sections tools' var(--panera-header-height) / auto 1fr auto;
+    overflow: visible;
+  }
+
+  header nav .nav-hamburger {
+    display: none;
+    visibility: hidden;
+  }
+
+  header nav .nav-brand {
+    padding-left: 24px;
+  }
+
+  header nav .nav-brand img {
+    width: 100px;
+  }
+
+  header nav .nav-sections {
+    display: block;
+    visibility: visible;
   }
 
   header nav .nav-sections ul {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin: 0;
+    gap: 28px;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
+  header nav .nav-tools {
+    padding: 0 24px 0 0;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
-    display: none;
-    position: relative;
+  header nav .nav-tools ul {
+    gap: 20px;
+    flex-wrap: nowrap;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
-    position: absolute;
-    left: -24px;
-    width: 200px;
-    top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
-    white-space: initial;
-    z-index: 1;
+  header nav .nav-tools .nav-signin,
+  header nav .nav-tools .nav-join {
+    display: inline-block;
+    white-space: nowrap;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
-  }
-}
-
-/* tools */
-header nav .nav-tools {
-  grid-area: tools;
-}
-
-header nav .nav-tools .button {
-  margin: 0;
-  border: none;
-  padding: 0.5em;
-  background: none;
-  line-height: 0;
-}
-
-/* breadcrumbs */
-header .breadcrumbs {
-  display: none;
-  margin: auto;
-  max-width: 1248px;
-  height: var(--breadcrumbs-height);
-  padding: 0 24px;
-  font-size: var(--body-font-size-xs);
-  overflow: hidden;
-}
-
-header .breadcrumbs ol {
-  display: flex;
-  flex-flow: wrap;
-  list-style: none;
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  gap: 1ch;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-header .breadcrumbs ol li {
-  padding: 0;
-  color: var(--dark-color);
-}
-
-header .breadcrumbs ol li:not(:last-child)::after {
-  content: '/';
-  padding-left: 1ch;
-}
-
-/* stylelint-disable-next-line no-descending-specificity */
-header .breadcrumbs ol li[aria-current] {
-  color: var(--text-color);
-}
-
-@media (width >= 900px) {
-  header .breadcrumbs {
-    display: block;
-    max-width: 1264px;
-    padding: 0 32px;
+  header nav .nav-tools a.nav-cta {
+    padding: 12px 22px;
+    font-size: 15px;
   }
 }

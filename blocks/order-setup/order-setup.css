@@ -1,0 +1,67 @@
+/* order-setup — Rapid Pick-Up / Delivery toggle bar (white rounded container,
+   two equal-width transparent buttons with green bold labels + outline icons) */
+
+/* Break out of the default section max-width to span the full content width,
+   matching the hero block beneath it (and the source order-setup bar).
+   margin-top:0 removes the 40px inter-block gap inherited from following the
+   visually-hidden page-title H1, which otherwise leaves dead space at the top. */
+.order-setup-container .order-setup-wrapper {
+  max-width: unset;
+  padding: 0 24px;
+  margin-top: 0;
+}
+
+.order-setup {
+  display: flex;
+  border: 1px solid #e3e1d8;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.order-setup > div {
+  flex: 1 1 50%;
+  display: flex;
+}
+
+.order-setup > div + div {
+  border-left: 1px solid #e3e1d8;
+}
+
+.order-setup .order-setup-option {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 12px;
+  color: var(--panera-green);
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.order-setup .order-setup-option:hover {
+  background-color: #f6f4ee;
+}
+
+.order-setup .order-setup-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--panera-green-dark);
+  flex: 0 0 auto;
+}
+
+.order-setup .order-setup-icon svg {
+  width: 28px;
+  height: 28px;
+}

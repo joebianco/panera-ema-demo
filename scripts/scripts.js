@@ -121,10 +121,27 @@ function decorateSections(main) {
 }
 
 /**
+ * Move instrumentation attributes from one element to another.
+ * @param {Element} from The element to move attributes from
+ * @param {Element} to The element to move attributes to
+ */
+export function moveInstrumentation(from, to) {
+  const attributes = [...from.attributes]
+    .map(({ nodeName }) => nodeName)
+    .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'));
+  attributes.forEach((attr) => {
+    const value = from.getAttribute(attr);
+    if (value) {
+      to.setAttribute(attr, value);
+      from.removeAttribute(attr);
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);

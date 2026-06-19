@@ -1,0 +1,38 @@
+{
+  "variantName": "carousel-product",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-06-18T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.panerabread.com/en-us/home.html",
+    "originPage": "Panera Bread homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "product",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "repeating slides: image + title + short text",
+    "buttonCount": 0,
+    "imageCount": "1 per slide"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "horizontally scrolling product showcases",
+      "'what guests are loving' style featured-item rows",
+      "swipable galleries with prev/next navigation"
+    ],
+    "notSuitableFor": [
+      "single static feature image",
+      "navigational category tile grids (use cards instead)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/en-us/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-18T00:00:00.000Z"
+  }
+}

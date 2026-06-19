@@ -1,0 +1,86 @@
+/* Block: cards-benefit — MyPanera Rewards benefit list
+   Values extracted from panerabread.com homepage MyPanera section computed styles.
+   Source: horizontal item (icon left + text right), align-items center,
+   narrow centered column. Each EDS block renders one benefit item; the three
+   blocks stack as a centered vertical list. */
+
+.cards-benefit {
+  margin: 0 auto;
+  max-width: 450px;
+}
+
+/* The three MyPanera benefit cards are separate blocks stacked in one section;
+   collapse the default 40px inter-wrapper gap to a tight 10px stack
+   (matches the source card list). */
+main .section > .cards-benefit-wrapper + .cards-benefit-wrapper {
+  margin-top: 10px;
+}
+
+.cards-benefit > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Each benefit = a white rounded card with icon left + text right.
+   Matches source: white bg, 8px radius, soft cream shadow, ~400px wide. */
+.cards-benefit > ul > li {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 400px;
+  min-height: 90px;
+  margin: 0;
+  padding: 16px 20px;
+  background-color: #fff;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgb(234 233 230) 0 5px 10px 5px;
+}
+
+/* Icon — fixed 40x40, no flex shrink */
+.cards-benefit .cards-benefit-card-image {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.cards-benefit .cards-benefit-card-image img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Text block — left-aligned title (+ optional description) */
+.cards-benefit .cards-benefit-card-body {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.cards-benefit .cards-benefit-card-body h3 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0.11px;
+  text-transform: none;
+  color: var(--text-color);
+}
+
+.cards-benefit .cards-benefit-card-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--text-color);
+}

@@ -1,0 +1,11 @@
+{
+  "sites": {
+    "panera-ema-demo": {
+      "previewOrg": "joebianco",
+      "previewSite": "panera-ema-demo",
+      "contentHostUrl": "https://content.da.live/joebianco/panera-ema-demo/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  },
+  "type": "da"
+}

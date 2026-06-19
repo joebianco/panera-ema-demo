@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.panerabread.com/en-us/home.html"
+      ],
+      "representativeUrl": "https://www.panerabread.com/en-us/home.html",
+      "coverageGaps": [],
+      "description": "Panera Bread homepage with header, hero, product carousel, promo cards, menu category grid, and MyPanera rewards sections, plus footer",
+      "blocks": [
+        {
+          "name": "order-setup",
+          "instances": [
+            "#order-setup-bar"
+          ]
+        },
+        {
+          "name": "hero-promo",
+          "instances": [
+            "#top > section.swiper-slide:nth-of-type(1) div.iw-braze-card",
+            "#top > section.swiper-slide:nth-of-type(6) div.iw-bc-img-container"
+          ]
+        },
+        {
+          "name": "carousel-product",
+          "instances": [
+            "#top > section.swiper-slide:nth-of-type(2) div.iw-product-carousel-v2"
+          ]
+        },
+        {
+          "name": "cards-promo",
+          "instances": [
+            "#top > section.swiper-slide:nth-of-type(4) div.iw-bsbs-cards-container"
+          ]
+        },
+        {
+          "name": "cards-category",
+          "instances": [
+            "#top > section.swiper-slide:nth-of-type(5) div.iw-braze-category-section-a"
+          ]
+        },
+        {
+          "name": "cards-benefit",
+          "instances": [
+            "#top > section.swiper-slide:nth-of-type(6) div.iw-bc-desc-container"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "brazeSideBySide",
+          "name": "Flavor Starts Here",
+          "selector": "#top > section.swiper-slide:nth-of-type(4)",
+          "style": "warm-cream",
+          "blocks": [
+            "cards-promo"
+          ],
+          "defaultContent": [
+            "#top > section.swiper-slide:nth-of-type(4) p.font-head--sm.pds-color-midnight.text-uppercase"
+          ]
+        },
+        {
+          "id": "userProgram",
+          "name": "MyPanera Rewards",
+          "selector": "#top > section.swiper-slide:nth-of-type(6)",
+          "style": "light",
+          "blocks": [
+            "hero-promo",
+            "cards-benefit"
+          ],
+          "defaultContent": [
+            "#top > section.swiper-slide:nth-of-type(6) p.font-head--sm.text-uppercase"
+          ]
+        }
+      ]
+    }
+  ]
+}

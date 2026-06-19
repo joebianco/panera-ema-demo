@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-benefit",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-18T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.panerabread.com/en-us/home.html",
+    "originPage": "Panera Bread homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "feature",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + heading + description per card",
+    "buttonCount": 0,
+    "imageCount": "1 icon per card"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "benefit/perk lists with an icon, title and short description",
+      "loyalty/rewards value-prop rows (e.g. MyPanera benefits)",
+      "icon-led feature lists"
+    ],
+    "notSuitableFor": [
+      "large photographic promo cards",
+      "navigational category tiles"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/en-us/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-18T00:00:00.000Z"
+  }
+}
