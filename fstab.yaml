@@ -1,4 +1,4 @@
 mountpoints:
   /:
-    url: https://content.da.live/joebianco/panera-ema-demo
+    url: https://content.da.live/joebianco/panera-ema-demo/
     type: markup
