@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.panerabread.com/en-us/home.html",
+  "path": "en-us/home",
+  "timestamp": "2026-06-19T00:48:11.635Z",
+  "title": "Home | Panera Bread",
+  "template": "homepage",
+  "blocks": [
+    "order-setup",
+    "hero-promo",
+    "hero-promo",
+    "carousel-product",
+    "cards-promo",
+    "cards-category",
+    "cards-benefit",
+    "cards-benefit",
+    "cards-benefit"
+  ]
+}

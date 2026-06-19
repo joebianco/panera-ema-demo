@@ -1,20 +1,125 @@
+/* Panera Bread footer — dark green with link columns, MyPanera CTA, social, legal */
+/* stylelint-disable no-descending-specificity */
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--panera-green, #4c753f);
+  color: #fff;
+  font-size: 14px;
 }
 
+/* footer.js wraps all sections in one extra <div>; target that wrapper */
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: 1264px;
+  padding: 48px 24px 32px;
 }
 
 footer .footer p {
+  margin: 0 0 12px;
+}
+
+footer .footer a:any-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  text-decoration: underline;
+}
+
+/* Each top-level fragment div becomes a .section inside the wrapper */
+footer .footer .section {
+  margin-bottom: 0;
+}
+
+/* Column lists (first section) */
+footer .footer .section:first-child .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgb(255 255 255 / 25%);
+}
+
+footer .footer .section ul {
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+footer .footer .section:first-child li {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* MyPanera CTA + social (second section) */
+footer .footer .section:nth-child(2) .default-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgb(255 255 255 / 25%);
+}
+
+footer .footer .section:nth-child(2) p:nth-child(2) a {
+  display: inline-block;
+  background-color: var(--panera-lime, #c5d400);
+  color: var(--panera-green-dark, #1d4321);
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 999px;
+}
+
+footer .footer .section:nth-child(2) p:nth-child(2) a:hover {
+  text-decoration: none;
+  filter: brightness(0.95);
+}
+
+footer .footer .section:nth-child(2) p:last-child {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer .footer .section:nth-child(2) p:last-child a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Legal (third section) */
+footer .footer .section:last-child {
+  font-size: 12px;
+  color: rgb(255 255 255 / 85%);
+}
+
+footer .footer .section:last-child .default-content-wrapper {
+  padding-top: 24px;
+}
+
+footer .footer .section:last-child p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+footer .footer .section:last-child a {
+  text-decoration: underline;
+  color: rgb(255 255 255 / 85%);
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 56px 32px 32px;
+  }
+
+  footer .footer .section:first-child .default-content-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  footer .footer .section:nth-child(2) .default-content-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }

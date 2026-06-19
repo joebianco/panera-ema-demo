@@ -1,3 +1,5 @@
+@import url('brand.css');
+
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -11,17 +13,17 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* colors (Panera) */
+  --background-color: #fff;
+  --light-color: #f6f4ee;
+  --dark-color: #4c753f;
+  --text-color: #011400;
+  --link-color: #4c753f;
+  --link-hover-color: #35383d;
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  /* fonts — champion→oswald (heading), sequel-sans→system (body) */
+  --body-font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  --heading-font-family: oswald, "Helvetica Neue", helvetica, arial, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -173,7 +175,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons */
+/* buttons — Panera lime pill CTA */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -181,16 +183,16 @@ button {
   max-width: 100%;
   margin: 12px 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
+  border-radius: 999px;
+  padding: 0.7em 1.8em;
   font-family: var(--body-font-family);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
+  background-color: var(--panera-lime);
+  color: var(--panera-green-dark);
   cursor: pointer;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -200,7 +202,8 @@ a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  background-color: var(--panera-lime);
+  filter: brightness(0.95);
   cursor: pointer;
 }
 
@@ -249,16 +252,67 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+/* Consistent vertical spacing between block wrappers within a section.
+   EDS block wrappers have no default vertical margin, so blocks butt against
+   each other; add a uniform gap between consecutive wrappers (not the first). */
+main > .section > div + div {
+  margin-top: 40px;
+}
+
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
   }
 }
 
-/* section metadata */
+/* section metadata — page background stays white to match the source;
+   the warm cream tone is reserved for hero block variants only. */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: var(--background-color);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.warm-cream {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 48px 0;
+}
+
+/* Section eyebrow headings ("FLAVOR STARTS HERE", "MYPANERA REWARDS") —
+   default-content paragraphs preceding the cards-promo / cards-benefit blocks.
+   Break their wrappers out to full content width so they left-align with the
+   blocks below, and match the source's condensed uppercase display treatment
+   (like the carousel heading): 32px Oswald, weight 400, midnight, uppercase. */
+main .cards-promo-container .default-content-wrapper:has(> p:only-child),
+main .cards-benefit-container .default-content-wrapper:has(> p:only-child) {
+  max-width: unset;
+  padding: 0 24px;
+}
+
+main .cards-promo-container .default-content-wrapper > p:only-child,
+main .cards-benefit-container .default-content-wrapper > p:only-child {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.1px;
+  text-transform: uppercase;
+  color: var(--panera-midnight, #011400);
+}
+
+/* Page-title H1 ("Panera Bread") — visually hidden and collapsed, matching the
+   source page (kept in the DOM/accessibility tree, takes up no space). */
+main h1#panera-bread {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

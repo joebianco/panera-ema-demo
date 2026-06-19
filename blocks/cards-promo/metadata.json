@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-18T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.panerabread.com/en-us/home.html",
+    "originPage": "Panera Bread homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + CTA per card",
+    "buttonCount": 1,
+    "imageCount": "1 per card"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "side-by-side promotional cards with image, copy and CTA",
+      "'flavor starts here' style 2-up promo blocks",
+      "marketing feature cards with a CTA"
+    ],
+    "notSuitableFor": [
+      "compact navigational category tiles",
+      "icon-only benefit lists"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/en-us/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-18T00:00:00.000Z"
+  }
+}

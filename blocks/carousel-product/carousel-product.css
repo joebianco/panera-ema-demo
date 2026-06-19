@@ -1,0 +1,314 @@
+/*
+ * carousel-product — Panera "WHAT GUESTS ARE LOVING" product showcase.
+ * Horizontal scrolling row of product cards: rounded image on top,
+ * product title + calorie subtext below, on a white section background.
+ * Values extracted from div.iw-product-carousel-v2 on panerabread.com.
+ */
+/* stylelint-disable no-descending-specificity */
+
+/* Break out of the default section max-width to span the full content width,
+   matching the source carousel (and the hero/order-setup blocks above). */
+.carousel-product-container .carousel-product-wrapper {
+  max-width: unset;
+  padding: 0 24px;
+}
+
+/* Carousel header — heading ("WHAT GUESTS ARE LOVING") + category tabs + CTA.
+   Emitted as default content before the block; break it out to full width so it
+   left-aligns with the carousel cards below. */
+.carousel-product-container .carousel-product-header {
+  max-width: unset;
+  padding: 0 24px;
+  margin-bottom: 12px;
+}
+
+.carousel-product-container .carousel-product-header h1,
+.carousel-product-container .carousel-product-header h2,
+.carousel-product-container .carousel-product-header h3 {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.1px;
+  text-transform: uppercase;
+  color: var(--panera-midnight, #011400);
+}
+
+/* Tabs (left) + "Explore all" CTA (right) on one row. */
+.carousel-product-container .carousel-product-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+.carousel-product-container .carousel-product-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-product-container .carousel-product-tabs li {
+  margin: 0;
+}
+
+.carousel-product-container .carousel-product-tabs li a:any-link {
+  font-size: 18px;
+  font-weight: 300;
+  color: #949499;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.carousel-product-container .carousel-product-tabs li[data-active='true'] a:any-link {
+  font-weight: 500;
+  color: #35383d;
+}
+
+.carousel-product-container .carousel-product-tabs li a:hover {
+  color: #35383d;
+}
+
+/* "Explore all Sandwiches" link — Panera green, bold, with chevron. */
+.carousel-product-container .carousel-product-explore {
+  margin: 0;
+}
+
+.carousel-product-container .carousel-product-explore a:any-link {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--panera-green);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.carousel-product-container .carousel-product-explore a:any-link::after {
+  content: '›';
+  margin-left: 6px;
+  font-weight: 700;
+}
+
+.carousel-product-container .carousel-product-explore a:hover {
+  text-decoration: underline;
+}
+
+.carousel-product .carousel-product-slides-container {
+  position: relative;
+}
+
+.carousel-product .carousel-product-slides,
+.carousel-product .carousel-product-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Horizontal product card row */
+.carousel-product .carousel-product-slides {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-product .carousel-product-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each slide = a product card */
+.carousel-product .carousel-product-slide {
+  flex: 0 0 78%;
+  max-width: 373px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  position: relative;
+  min-height: 0;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: rgba(44 49 41 / 15%) 0 0 12px 1px;
+  overflow: hidden;
+  text-align: left;
+}
+
+/* Product image fills the top of the card */
+.carousel-product .carousel-product-slide .carousel-product-slide-image {
+  position: static;
+  margin: 0;
+  width: 100%;
+}
+
+.carousel-product .carousel-product-slide .carousel-product-slide-image picture {
+  position: static;
+  display: block;
+  inset: auto;
+  width: 100%;
+}
+
+.carousel-product .carousel-product-slide .carousel-product-slide-image picture > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 373 / 212;
+  object-fit: cover;
+}
+
+/* Card content (title + calorie) below the image */
+.carousel-product .carousel-product-slide .carousel-product-slide-content {
+  z-index: auto;
+  position: static;
+  width: auto;
+  margin: 0;
+  padding: 20px;
+  color: var(--text-color);
+  background-color: transparent;
+}
+
+/* Product title */
+.carousel-product .carousel-product-slide .carousel-product-slide-content h3 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: -0.2px;
+  text-transform: none;
+  color: var(--text-color);
+}
+
+/* Calorie subtext (exclude the badge paragraph) */
+.carousel-product .carousel-product-slide .carousel-product-slide-content p:not(.carousel-product-badge) {
+  margin: 4px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  color: rgb(100 99 93);
+}
+
+/* Product badge ("NEW RECIPE!" / "New Item") — overlaid on the card image top-left */
+.carousel-product .carousel-product-slide .carousel-product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  margin: 0;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background-color: var(--panera-nav-link, #576c1d);
+  color: #f4f3e6;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: none;
+}
+
+/* Slide indicator dots */
+.carousel-product .carousel-product-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 12px;
+  padding: 16px 12px 4px;
+  background-color: transparent;
+  line-height: 0;
+}
+
+.carousel-product .carousel-product-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #dadada;
+  transition: background-color 0.2s;
+}
+
+.carousel-product .carousel-product-slide-indicator button:disabled,
+.carousel-product .carousel-product-slide-indicator button:hover,
+.carousel-product .carousel-product-slide-indicator button:focus-visible {
+  background-color: var(--panera-green);
+}
+
+/* Prev / next navigation buttons */
+.carousel-product .carousel-product-navigation-buttons {
+  position: absolute;
+  top: calc((100% - 56px) / 2);
+  transform: translateY(-50%);
+  left: 4px;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.carousel-product .carousel-product-navigation-buttons button {
+  pointer-events: auto;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  border-radius: 50%;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: rgba(44 49 41 / 20%) 0 0 8px 1px;
+  transition: background-color 0.2s;
+}
+
+.carousel-product .carousel-product-navigation-buttons button:hover,
+.carousel-product .carousel-product-navigation-buttons button:focus-visible {
+  background-color: var(--light-color);
+}
+
+.carousel-product .carousel-product-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 2px solid var(--panera-green);
+  border-bottom: 0;
+  border-left: 0;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-product .carousel-product-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+@media (width >= 600px) {
+  .carousel-product .carousel-product-slides {
+    gap: 20px;
+    padding: 16px 0;
+  }
+
+  .carousel-product .carousel-product-slide {
+    flex: 0 0 373px;
+    max-width: 373px;
+  }
+
+  .carousel-product .carousel-product-navigation-buttons {
+    left: -8px;
+    right: -8px;
+  }
+}

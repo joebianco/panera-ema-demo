@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-category",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-18T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.panerabread.com/en-us/home.html",
+    "originPage": "Panera Bread homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "compact",
+    "purpose": "navigation",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + category label + optional short descriptor, wrapped in link per card",
+    "buttonCount": 0,
+    "imageCount": "1 per card"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "menu/category navigation tile grids",
+      "'browse our menu' style linked category tiles",
+      "compact image + label navigational cards"
+    ],
+    "notSuitableFor": [
+      "large promotional feature cards with CTAs",
+      "icon-only benefit lists"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/en-us/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-18T00:00:00.000Z"
+  }
+}

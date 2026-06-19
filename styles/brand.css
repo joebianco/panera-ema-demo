@@ -1,0 +1,31 @@
+:root {
+  /* Panera brand palette */
+  --panera-coral: #ff978f;
+  --panera-green: #4c753f;
+  --panera-green-dark: #1d4321;
+  --panera-lime: #c5d400;
+  --panera-midnight: #011400;
+  --panera-cream: #f5f3e6; /* hero block panel background only */
+
+  /* Fonts — champion (heading) substituted with Oswald; sequel-sans (body) with system sans */
+  --heading-font-family: oswald, "Helvetica Neue", helvetica, arial, sans-serif;
+  --body-font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+
+  /* Base colors */
+  --background-color: #fff;
+  --text-color: #011400;
+  --link-color: #4c753f;
+  --link-hover-color: #35383d;
+
+  /* Spacing */
+  --section-padding: 48px;
+  --nav-height: 72px;
+
+  /* Heading sizes (desktop) */
+  --heading-size-xxl: 48px;
+  --heading-size-xl: 40px;
+  --heading-size-l: 32px;
+  --heading-size-m: 24px;
+  --heading-size-s: 20px;
+  --heading-size-xs: 18px;
+}

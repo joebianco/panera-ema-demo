@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-promo",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-06-18T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.panerabread.com/en-us/home.html",
+    "originPage": "Panera Bread homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "feature image + heading + paragraph + CTA",
+    "buttonCount": 1,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "promotional banner heroes with a feature product image",
+      "image-led promo panels with 1-2 CTAs (e.g. MyPanera join panel)",
+      "light/cream-background promo sections"
+    ],
+    "notSuitableFor": [
+      "dark full-bleed photographic heroes",
+      "text-only heroes with no imagery"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/en-us/home"],
+    "reuseCount": 2,
+    "lastUsed": "2026-06-18T00:00:00.000Z"
+  }
+}
